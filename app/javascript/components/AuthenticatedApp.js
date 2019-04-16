@@ -2,17 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Apartment from "./pages/Apartment";
+import ApartmentsPage from "./pages/ApartmentsPage";
+
 class AuthenticatedApp extends React.Component {
   render() {
+    const { current_user } = this.props;
     return (
-      <Router>
-        <div>
+      <React.Fragment>
+        <h1>HELLO {current_user.name}</h1>
+        <Router>
           <Switch>
-            <Route path="/apartment" component={Apartment} />
+            <Route
+              to="/apartments"
+              render={() => <ApartmentsPage {...this.props} />}
+            />
           </Switch>
-        </div>
-      </Router>
+        </Router>
+      </React.Fragment>
     );
   }
 }

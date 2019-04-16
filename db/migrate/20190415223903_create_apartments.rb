@@ -7,9 +7,6 @@ class CreateApartments < ActiveRecord::Migration[5.2]
       t.string :postal_code
       t.string :state
       t.string :country
-      t.string :manager_name
-      t.string :manager_phone
-      t.integer :manager_hour
       t.integer :user_id
 
       t.timestamps
